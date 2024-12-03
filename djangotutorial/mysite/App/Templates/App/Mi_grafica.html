@@ -98,15 +98,15 @@
                         const ctx = document.getElementById('MiGrafica_line').getContext('2d');
                         // Crear la gráfica
                         new Chart(ctx, {
-                            type: 'line',  // Tipo de gráfica (barras)
+                            type: 'line',  // Tipo de gráfica (lineal)
                             data: {
                                 labels: data.etiquetas_line,  // Etiquetas para el eje X
                                 datasets: [{
                                     label: 'Videojuegos mas vendidos EN Xbox Game Pass',
                                     data: data.datos_line,  // Datos para la gráfica (valores para el eje Y)
-                                    backgroundColor:'rgba(255, 0, 0, 0.2)',  // Color de fondo de las barras
-                                    borderColor: 'rgba(13, 13, 13, 1)',  // Color de borde de las barras
-                                    borderWidth: 1 ,// Ancho del borde de las barras
+                                    backgroundColor:'rgba(255, 0, 0, 0.2)',  // Color de fondo 
+                                    borderColor: 'rgba(13, 13, 13, 1)',  // Color de borde 
+                                    borderWidth: 1 ,// Ancho del borde 
                                 }]
                             },
                             options: {
@@ -149,15 +149,15 @@
                         const ctx = document.getElementById('MiGrafica_pastel').getContext('2d');
                         // Crear la gráfica
                         new Chart(ctx, {
-                            type: 'pie',  // Tipo de gráfica (barras)
+                            type: 'pie',  // Tipo de gráfica (pastel)
                             data: {
                                 labels: data.etiquetas_pie,  // Etiquetas para el eje X
                                 datasets: [{
                                     label:'Peliculas mas vistas en 2024 y sus recaudaciones en millones',
                                     data: data.datos_pie,  // Datos para la gráfica (valores para el eje Y)
-                                    backgroundColor:'rgba(0, 20, 184, 0.2)',  // Color de fondo de las barras
-                                    borderColor: 'rgba(2, 189, 19, 1)',  // Color de borde de las barras
-                                    borderWidth: 1 ,// Ancho del borde de las barras
+                                    backgroundColor:'rgba(0, 20, 184, 0.2)',  // Color de fondo 
+                                    borderColor: 'rgba(2, 189, 19, 1)',  // Color de borde
+                                    borderWidth: 1 ,// Ancho del borde 
                                 }]
                             },
                             options: {
@@ -203,15 +203,15 @@
             const ctx = document.getElementById('MiGrafica_dispersion').getContext('2d');
             // Crear la gráfica
             new Chart(ctx, {
-                type: 'scatter',  // Tipo de gráfica (barras)
+                type: 'scatter',  // Tipo de gráfica (Dispersion)
                 data: {
                     //labels: data.datos_dispersion,  // Etiquetas para el eje X
                     datasets: [{
                         label: 'Popularidad del Calzado',
                         data: data.datos_dispersion,  // Datos para la gráfica (valores para el eje Y)
-                        backgroundColor:'rgba(10, 34, 180, 0.2)',  // Color de fondo de las barras
-                        borderColor: 'rgba(7, 18, 86, 1)',  // Color de borde de las barras
-                        borderWidth: 1 ,// Ancho del borde de las barras
+                        backgroundColor:'rgba(10, 34, 180, 0.2)',  // Color de fondo 
+                        borderColor: 'rgba(7, 18, 86, 1)',  // Color de borde 
+                        borderWidth: 1 ,// Ancho del borde 
                     }]
                 },
                 options: {
@@ -265,15 +265,15 @@
                 const ctx = document.getElementById('MiGrafica_histograma').getContext('2d');
                 // Crear la gráfica
                 new Chart(ctx, {
-                    type: 'bar',  // Tipo de gráfica (barras)
+                    type: 'bar',  // Tipo de gráfica (histograma)
                     data: {
                         labels: data.etiquetas_histograma,  // Etiquetas para el eje X
                         datasets: [{
                             label: 'Poblacion en Ecatepec',
                             data: data.datos_histograma,  // Datos para la gráfica (valores para el eje Y)
-                            backgroundColor:'rgba(245, 207, 148, 0.2)',  // Color de fondo de las barras
-                            borderColor: 'rgba(226, 109, 23, 1)',  // Color de borde de las barras
-                            borderWidth: 1 ,// Ancho del borde de las barras
+                            backgroundColor:'rgba(245, 207, 148, 0.2)',  // Color de fondo 
+                            borderColor: 'rgba(226, 109, 23, 1)',  // Color de borde 
+                            borderWidth: 1 ,// Ancho del borde 
                         }]
                     },
                     options: {
@@ -330,15 +330,15 @@
                 const ctx = document.getElementById('miGrafica').getContext('2d');
                  // Crear la gráfica Boxplot
                 new Chart(ctx, {
-                    type: 'boxplot',  // Tipo de gráfica
+                    type: 'boxplot',  // Tipo de gráfica (box plot)
                     data: {
                         labels: data.etiquetas,  // Etiquetas para el eje X
                         datasets: [{
                             label: 'Temperatura maxima y minima',
                             data: data.valores,  // Datos para la grafica (valores para el eje y)
-                            backgroundColor: 'rgba(149, 12, 168 , 0.2)', //Color de fondo de las barras 
-                            borderColor: 'rgba(5, 5, 5 , 1)',       //Color del borde de las barras
-                            borderWidth: 1                              //Ancho del borde de las barras
+                            backgroundColor: 'rgba(149, 12, 168 , 0.2)', //Color de fondo 
+                            borderColor: 'rgba(5, 5, 5 , 1)',       //Color del borde 
+                            borderWidth: 1                              //Ancho del borde 
                         }]
                     },
                     options: {
