@@ -1,7 +1,6 @@
- instalar Django
+instalar Django
  instalar git (64 bits)
  instalar Gitbash
  Crear una cuenta en github
  A si mismo crear un nuevo repositorio( que sea de formato publico), en la cuenta antes creada en github 
  Instalar conventional Commits 
-
