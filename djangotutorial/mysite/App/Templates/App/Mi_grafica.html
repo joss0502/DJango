@@ -1,0 +1,377 @@
+<!-- mi app/templates/mi_App/Mi_grafica.html -->
+<!-- app/templates/App/mi_grafica.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica con Chart.js</title>
+    <script src=" https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- Cargar Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-boxplot"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@sgratzl/chartjs-chart-boxplot"></script>
+
+</head>
+<style>
+    table {
+        border: none;
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+        text-align: center;
+        width: 50%;
+    }
+</style>
+<body>    
+<table>
+    <tr>
+        <td> <h1>Gráfica de Barras </h1>
+            <canvas id="MiGrafica" width="400" height="200"></canvas>  <!-- El área donde se dibujará la gráfica -->
+        
+            <script>
+                // Hacer una solicitud para obtener los datos
+                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error en la respuesta del servidor');
+                        }
+                        //return response => json();
+                        return {
+                            datos: [10,15,33,24,28],
+                            etiquetas: ['Enero','Febrero','Marzo','Abril','Junio'],
+                        }
+        
+                    })
+                    .then(data => {
+                        // Obtener el contexto del canvas
+                        console.info(data)
+                        const ctx = document.getElementById('MiGrafica').getContext('2d');
+                        // Crear la gráfica
+                        new Chart(ctx, {
+                            type: 'bar',  // Tipo de gráfica (barras)
+                            data: {
+                                labels: data.etiquetas,  // Etiquetas para el eje X
+                                datasets: [{
+                                    label: 'Grados celcius predominantes en cada mes ',
+                                    data: data.datos,  // Datos para la gráfica (valores para el eje Y)
+                                    backgroundColor:'rgba(227, 18, 192, 0.2)',  // Color de fondo de las barras
+                                    borderColor: 'rgba(141, 18, 227, 1)',  // Color de borde de las barras
+                                    borderWidth: 1 ,// Ancho del borde de las barras
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true  // El eje Y comienza en cero
+                                    }
+                                }
+                            }
+                        });
+                    })
+                    .catch(error => console.error['Error al cargar los datos:', error]);  // Manejo de errores
+                    
+            </script>
+            </td>
+        <td>
+            <h1>Gráfica tipo line </h1>
+            <canvas id="MiGrafica_line" width="400" height="200"></canvas>  <!-- El área donde se dibujará la gráfica -->
+            
+            <script>
+                // Hacer una solicitud para obtener los datos
+                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error en la respuesta del servidor');
+                        }
+                        //return response => json();
+                        return {
+                            datos_line: [250,230,189,200,180],
+                            etiquetas_line: ['Call of duty WWI','Halo Guardians','Batlefield','Forza Horizon','Hogwarts Legacy'],
+                        }
+            
+                    })
+                    .then(data => {
+                        // Obtener el contexto del canvas
+                        console.info(data)
+                        const ctx = document.getElementById('MiGrafica_line').getContext('2d');
+                        // Crear la gráfica
+                        new Chart(ctx, {
+                            type: 'line',  // Tipo de gráfica (barras)
+                            data: {
+                                labels: data.etiquetas_line,  // Etiquetas para el eje X
+                                datasets: [{
+                                    label: 'Videojuegos mas vendidos EN Xbox Game Pass',
+                                    data: data.datos_line,  // Datos para la gráfica (valores para el eje Y)
+                                    backgroundColor:'rgba(255, 0, 0, 0.2)',  // Color de fondo de las barras
+                                    borderColor: 'rgba(13, 13, 13, 1)',  // Color de borde de las barras
+                                    borderWidth: 1 ,// Ancho del borde de las barras
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true  // El eje Y comienza en cero
+                                    }
+                                }
+                            }
+                        });
+                    })
+                    .catch(error => console.error['Error al cargar los datos:', error]);  // Manejo de errores
+                    
+            </script>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><h1>Gráfica tipo pastel </h1>
+            <canvas id="MiGrafica_pastel" width="400" height="200"></canvas>  <!-- El área donde se dibujará la gráfica -->
+            
+            <script>
+                // Hacer una solicitud para obtener los datos
+                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error en la respuesta del servidor');
+                        }
+                        //return response => json();
+                        return {
+                            datos_pie: [289,850,370,120,331],
+                            etiquetas_pie: ['intensamente 2','Wolverin y Deadpool','Mi villano favorito 4','Venom Ultimo baile','Alien:Romulus'],
+                        }
+            
+                    })
+                    .then(data => {
+                        // Obtener el contexto del canvas
+                        console.info(data)
+                        const ctx = document.getElementById('MiGrafica_pastel').getContext('2d');
+                        // Crear la gráfica
+                        new Chart(ctx, {
+                            type: 'pie',  // Tipo de gráfica (barras)
+                            data: {
+                                labels: data.etiquetas_pie,  // Etiquetas para el eje X
+                                datasets: [{
+                                    label:'Peliculas mas vistas en 2024 y sus recaudaciones en millones',
+                                    data: data.datos_pie,  // Datos para la gráfica (valores para el eje Y)
+                                    backgroundColor:'rgba(0, 20, 184, 0.2)',  // Color de fondo de las barras
+                                    borderColor: 'rgba(2, 189, 19, 1)',  // Color de borde de las barras
+                                    borderWidth: 1 ,// Ancho del borde de las barras
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true  // El eje Y comienza en cero
+                                    }
+                                }
+                            }
+                        });
+                    })
+                    .catch(error => console.error['Error al cargar los datos:', error]);  // Manejo de errores
+                    
+            </script>
+            </td>
+            <td>
+                <h1>Gráfica tipo Dispersion </h1>
+<canvas id="MiGrafica_dispersion" width="400" height="400"></canvas>  <!-- El área donde se dibujará la gráfica -->
+
+<script>
+    // Hacer una solicitud para obtener los datos
+    fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            //return response => json();
+            return {
+                datos_dispersion: [
+                { x: 'Zapatos', y: 5 },
+                { x: 'Tenis', y: 10 },
+                { x: 'Tacones', y: 5 },
+                { x: 'Botas', y: 5.5 },
+                { x: 'Chanclas', y: 8 },
+            ]
+               
+            }
+
+        })
+        .then(data => {
+            // Obtener el contexto del canvas
+            console.info(data)
+            const ctx = document.getElementById('MiGrafica_dispersion').getContext('2d');
+            // Crear la gráfica
+            new Chart(ctx, {
+                type: 'scatter',  // Tipo de gráfica (barras)
+                data: {
+                    //labels: data.datos_dispersion,  // Etiquetas para el eje X
+                    datasets: [{
+                        label: 'Popularidad del Calzado',
+                        data: data.datos_dispersion,  // Datos para la gráfica (valores para el eje Y)
+                        backgroundColor:'rgba(10, 34, 180, 0.2)',  // Color de fondo de las barras
+                        borderColor: 'rgba(7, 18, 86, 1)',  // Color de borde de las barras
+                        borderWidth: 1 ,// Ancho del borde de las barras
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'category',
+                            tittle:{
+                                display: true,
+                                text: 'Mes'
+                            }
+                        },
+                        y:{
+                            beginAtZero: true,
+                            tittle:{
+                                display: true,
+                                text: 'valor'
+                            } 
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error['Error al cargar los datos:', error]);  // Manejo de errores
+        
+</script>
+      </td>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <h1>Gráfica tipo histograma </h1>
+    <canvas id="MiGrafica_histograma" width="400" height="200"></canvas>  <!-- El área donde se dibujará la gráfica -->
+
+    <script>
+        // Hacer una solicitud para obtener los datos
+        fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                //return response => json();
+                return {
+                    datos_histograma: [5000,1000,1500,8000,3000,3000,3500,400,450,500],
+                    etiquetas_histograma: ['0-10','10-20','20-30','30-40','40-50','50-60','60-70','80-90','90-100','100-110'],
+                }
+
+            })
+            .then(data => {
+                // Obtener el contexto del canvas
+                console.info(data)
+                const ctx = document.getElementById('MiGrafica_histograma').getContext('2d');
+                // Crear la gráfica
+                new Chart(ctx, {
+                    type: 'bar',  // Tipo de gráfica (barras)
+                    data: {
+                        labels: data.etiquetas_histograma,  // Etiquetas para el eje X
+                        datasets: [{
+                            label: 'Poblacion en Ecatepec',
+                            data: data.datos_histograma,  // Datos para la gráfica (valores para el eje Y)
+                            backgroundColor:'rgba(245, 207, 148, 0.2)',  // Color de fondo de las barras
+                            borderColor: 'rgba(226, 109, 23, 1)',  // Color de borde de las barras
+                            borderWidth: 1 ,// Ancho del borde de las barras
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                tittle:{
+                                display: true,
+                                text: 'Numero de Personas'
+                                }
+                            },
+                            x: {
+                                tittle:{
+                                display: true,
+                                text: 'Edad'
+                            }  
+                        }
+                    }
+                }
+                });
+            })
+            .catch(error => console.error['Error al cargar los datos:', error]);  // Manejo de errores
+            
+    </script>
+            </td>
+            <td>
+                <h1>Gráfica Boxplot</h1>
+<canvas id="miGrafica" width="400" height="200"></canvas> <!--El area donde se dibujara la grafica-->
+ 
+    <script>
+        //Hacer una solicitud para obtener los datos
+        fetch('/graficas/') // Ruta para obtener los datos de la grafica
+            .then(response => {
+                //Obtener el contexto del canvas
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                // Datos simulados en formato válido
+                return {
+                    etiquetas: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                    valores: [
+                        [3, 4, 5, 6, 7],  
+                        [5, 6, 7, 8, 9],
+                        [4, 5, 6, 7, 8],
+                        [6, 7, 8, 9, 10],
+                        [3, 5, 6, 8, 9]
+                    ]
+                };
+            })
+            .then(data => {
+                console.info("Datos recibidos:", data);
+ 
+                // Obtener el contexto del canvas
+                const ctx = document.getElementById('miGrafica').getContext('2d');
+                 // Crear la gráfica Boxplot
+                new Chart(ctx, {
+                    type: 'boxplot',  // Tipo de gráfica
+                    data: {
+                        labels: data.etiquetas,  // Etiquetas para el eje X
+                        datasets: [{
+                            label: 'Temperatura maxima y minima',
+                            data: data.valores,  // Datos para la grafica (valores para el eje y)
+                            backgroundColor: 'rgba(149, 12, 168 , 0.2)', //Color de fondo de las barras 
+                            borderColor: 'rgba(5, 5, 5 , 1)',       //Color del borde de las barras
+                            borderWidth: 1                              //Ancho del borde de las barras
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '',
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,  // El eje Y comienza en cero
+                                title: {
+                                    display: true,
+                                    text: 'Valores'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Meses'
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error al cargar los datos o crear la gráfica:', error);
+            }); // Manejo de errores
+</script>
+        </td>
+          </tr>
+    </table>
+</body>
+</html> 
