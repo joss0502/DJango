@@ -80,7 +80,7 @@
             
             <script>
                 // Hacer una solicitud para obtener los datos
-                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                fetch('/graficas/line/')  // Ruta para obtener los datos de la gráfica
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Error en la respuesta del servidor');
@@ -132,7 +132,7 @@
             
             <script>
                 // Hacer una solicitud para obtener los datos
-                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                fetch('/graficas/pastel/')  // Ruta para obtener los datos de la gráfica
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Error en la respuesta del servidor');
@@ -179,7 +179,7 @@
 
             <script>
                 // Hacer una solicitud para obtener los datos
-                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                fetch('/graficas/dispersion/')  // Ruta para obtener los datos de la gráfica
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Error en la respuesta del servidor');
@@ -246,7 +246,7 @@
 
             <script>
                 // Hacer una solicitud para obtener los datos
-                fetch('/graficas/')  // Ruta para obtener los datos de la gráfica
+                fetch('/graficas/histograma/')  // Ruta para obtener los datos de la gráfica
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Error en la respuesta del servidor');
@@ -304,7 +304,7 @@
  
                 <script>
                     //Hacer una solicitud para obtener los datos
-                    fetch('/graficas/') // Ruta para obtener los datos de la grafica
+                    fetch('/graficas/boxplot/') // Ruta para obtener los datos de la grafica
                         .then(response => {
                             //Obtener el contexto del canvas
                             if (!response.ok) {
