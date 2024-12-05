@@ -21,8 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
      path('graficas/', include('App.urls')),
     path('graficas/line/', include('App.urls')),
-path('graficas/pastel/', include('App.urls')),
-path('graficas/dispersion/', include('App.urls')),
-path('graficas/histograma/', include('App.urls')),
-path('graficas/boxplot/', include('App.urls')),
+    path('graficas/pastel/', include('App.urls')),
+    path('graficas/dispersion/', include('App.urls')),
+    path('graficas/histograma/', include('App.urls')),
+    path('graficas/boxplot/', include('App.urls')),
 ]
